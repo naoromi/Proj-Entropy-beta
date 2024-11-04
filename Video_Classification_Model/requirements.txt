@@ -1,0 +1,12 @@
+tensorflow-gpu
+scikit-learn
+matplotlib
+keras
+h5py
+scipy
+numpy
+pandas
+pytz
+six
+tqdm
+tzdata

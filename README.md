@@ -26,6 +26,7 @@ This repository is the official implementation of **A Zero Decoding Approach to 
 4. [Quick Start](#quick-start)  
 5. [Citation](#citation)  
 6. [Acknowledgements](#acknowledgements)
+7. [Contributing](#contributing)
 
 <a name="overview"></a>
 ## Overview
@@ -97,4 +98,10 @@ Overview: videos -> covers -> design matrix -> train -> eval -> predict
 The authors thank Yuchen Deng and Fengpu Pan for their assistance in data collection and Haoyue Han for paper review.
 
 This work is supported by Shenzhen Startup Funding No.QD2023014C. 
+
+
+<a name="contributing"></a>
+## Contributing
+
+We would like to keep this version archival to match our paper's results, but freel free to fork or clone the repository—just don’t forget to give us a shout-out!
 

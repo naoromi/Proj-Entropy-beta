@@ -157,9 +157,19 @@ def rng_state() -> Dict[str, Any]:
 
 
 def restore_rng(state: Mapping[str, Any]) -> None:
-    random.setstate(state["python"]); np.random.set_state(state["numpy"])
-    torch.set_rng_state(state["torch"])
-    if state.get("cuda") is not None and torch.cuda.is_available(): torch.cuda.set_rng_state_all(state["cuda"])
+    """Restore RNG snapshots after normalizing torch states to CPU byte tensors.
+
+    Checkpoints are loaded onto the selected training device, but PyTorch's RNG
+    restoration APIs require their serialized state tensors to remain on CPU.
+    """
+    random.setstate(state["python"])
+    np.random.set_state(state["numpy"])
+    torch_state = torch.as_tensor(state["torch"], dtype=torch.uint8, device="cpu").contiguous()
+    torch.set_rng_state(torch_state)
+    if state.get("cuda") is not None and torch.cuda.is_available():
+        cuda_states = [torch.as_tensor(item, dtype=torch.uint8, device="cpu").contiguous()
+                       for item in state["cuda"]]
+        torch.cuda.set_rng_state_all(cuda_states)
 
 
 def choose_device(spec: str) -> torch.device:

@@ -1,8 +1,0 @@
-# The existing `entropy` Conda environment already provides these packages.
-# This file documents the PyTorch-only baseline; it is not necessary to reinstall them.
-numpy
-pandas
-scikit-learn
-matplotlib
-PyYAML
-torch

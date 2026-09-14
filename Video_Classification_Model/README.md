@@ -1,6 +1,6 @@
 # Supervised packet-sequence classification (PyTorch)
 
-This directory contains a reproducible supervised baseline for classifying 3,000-packet video sequences with the existing 1-D ResNet in `src/model_resnet_tsc.py`. The training/evaluation path is PyTorch-only. Legacy TensorFlow files remain for reference and are not imported.
+This directory contains a reproducible supervised baseline for classifying 3,000-packet video sequences with the existing 1-D ResNet in `src/model_resnet_tsc.py`. The training/evaluation path is PyTorch-only; the legacy TensorFlow implementation and dependencies have been removed.
 
 ## Environment and input contract
 
@@ -83,4 +83,4 @@ The standard-library suite does not require adding pytest:
 conda run -n entropy python -m unittest discover -s tests -v
 ```
 
-TensorFlow source files (`src/train_tf.py`, `src/eval_tf.py`, and other legacy dependencies) remain in the repository, but the new entry point does not import or use them.
+The project contains no TensorFlow/Keras source or dependency declarations.
